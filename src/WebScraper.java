@@ -14,8 +14,11 @@ public class WebScraper {
         String[] arrayOfContents = contents.split("\n");
         int containsTimes = 0;
         for (int i = 0; i < arrayOfContents.length; i++) {
-            if (arrayOfContents[i].contains(lookFor)) {
-                containsTimes++;
+            String[] arrayOfWords = arrayOfContents[i].split(" ");
+            for (int j = 0; j < arrayOfWords.length; j++) {
+                if (arrayOfWords[j].equalsIgnoreCase(lookFor)) {
+                    containsTimes++;
+                }
             }
         }
         System.out.println(containsTimes);
