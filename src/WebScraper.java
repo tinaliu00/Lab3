@@ -8,9 +8,17 @@ public class WebScraper {
         Scanner lineScanner = new Scanner(System.in);
         System.out.println("Enter a URL: ");
         String url = lineScanner.nextLine();
-        System.out.println("Enter a word to look for: ")
+        System.out.println("Enter a word to look for: ");
         String lookFor = lineScanner.nextLine();
-        // WIP
+        String contents = urlToString(url);
+        String[] arrayOfContents = contents.split("\n");
+        int containsTimes = 0;
+        for (int i = 0; i < arrayOfContents.length; i++) {
+            if (arrayOfContents[i].contains(lookFor)) {
+                containsTimes++;
+            }
+        }
+        System.out.println(containsTimes);
     }
 
     /**
